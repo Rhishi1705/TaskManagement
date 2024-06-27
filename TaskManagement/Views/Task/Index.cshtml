@@ -1,0 +1,133 @@
+﻿@model System.Data.DataTable
+@using System.Data;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <h3>Task Master<a href="javascript://" onclick="window.location.href = window.location.href"><i class="fa fa-times"></i></a></h3>
+
+
+
+    @*--------for grid start---------*@
+    <div class="grid-view">
+        <div class="min-height-vh70">
+
+            @*------Filter start--------*@
+            <div class="row">
+                <div class="col-md-3">
+                    <select class="form-control" id="statusddl1" style="width:50% !important" onchange="FilterChange(this)">
+                        <option value="0">All</option>
+                        <option value="1">InCompleted</option>
+                        <option value="2">Completed</option>
+                    </select>
+                </div>            
+            </div>
+
+            @*------Filter end--------*@
+
+
+
+            <div class="overflow-x-auto">
+                <table class="table" id="TaskTbl">
+                    <thead>
+                        <tr>
+                            <th>Srl</th>
+                            <th>Task Title</th>
+                            <th>Description</th>
+                            <th>Due Date</th>
+                            <th>Status</th>
+                            <th class="text-center">Edit</th>
+                            <th class="text-center">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int serialNumber = 0;
+                        }
+                        @foreach (DataRow row in Model.Rows)
+                        {
+                            serialNumber = serialNumber + 1;
+                            <tr>
+                                <td>@serialNumber</td>
+                                <td onclick="binddata('fill',this,'@row["nTaskId"]')"> @row["cTitle"] </td>
+                                <td onclick="binddata('fill',this,'@row["nTaskId"]')"> @row["cDecription"] </td>
+                                <td> @row["cDueDate"] </td>
+                                <td> @row["cStatus"] </td>
+                                <td style="display: none">@row["nStatus"]</td>
+                                <td style="display: none">@row["dDueDate"]</td>
+                                <td style="display: none">@row["cCreatedDate"]</td>
+                                <td style="display: none">@row["cModifiedDate"]</td>
+                                <td style="display: none">@row["cCreatedBy"]</td>
+                                <td style="display: none">@row["cModifiedBy"]</td>
+                                <td class="text-center" onclick="binddata('fill',this, '@row["nTaskId"]')"><a><i class="fa fa-pencil"></i></a></td>
+                                <td class="text-center" onclick="return deletedata('@row["nTaskId"]')"><a><i class="fa fa-trash"></i></a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="actions">
+            <button type="button" class="add" onclick="add()"><i class="fa fa-plus"></i>Add New</button>
+        </div>
+    </div>
+    @*--------for grid end---------*@
+
+
+
+    @*-------for form start--------*@
+    <div class="form-view hidden">
+        <div class="min-height-vh70">
+            <div class="metadata" id="metadata">
+
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="cTitle"> Title </label>
+                        <input type="text" id="cTitle" class="form-control" autocomplete="off" maxlength="50">
+                    </div>
+                </div>              
+            </div>
+            <div class="row">               
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="cDecription">Description</label>
+                        <input type="text" id="cDecription" class="form-control" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+            <div class="row">              
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="dDueDate">Due Date</label>
+                        <input type="date" id="dDueDate" class="form-control" autocomplete="off">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select class="form-control" id="statusddl">
+                            <option value="0">Select</option>
+                            <option value="1">InCompleted</option>
+                            <option value="2">Completed</option>                           
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button type="button" class="delete" onclick="return deletedata()"><i class="fa fa-trash"></i></button>
+            <button type="button" class="edit" onclick="return binddata('edit')"><i class="fa fa-pencil-square-o"></i></button>
+            <button type="button" class="save" onclick="return savedata()">Save</button>
+        </div>
+    </div>
+    @*-------for form end--------*@
+
+
+</div>
+<input type="hidden" id="hdn_id" value="0" />
+<script src="~/Scripts/Task.js"></script>

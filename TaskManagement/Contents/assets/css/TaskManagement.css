@@ -1,0 +1,25 @@
+﻿.content-wrapper > h3 { margin:0px 0px 10px;font-size:20px;line-height:24px;}
+.content-wrapper > h3 > a { display:none;float:right;color:#000;font-size:15px;}
+.content-wrapper > h3.open > a { display:block;}
+.min-height-vh70 { min-height:70vh;}
+.metadata {white-space:nowrap; font-size: 12px; color: #4e598d; background: #F1F4F4; padding: 5px 15px; margin:0px -20px 10px; border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;}
+.metadata > span {display:inline-block;width:50%; }
+.metadata > span:last-child {text-align:right; }
+.search-box {position:relative; padding-left:40px;border: 1px solid #ccc;border-radius:5px;margin:0px 0px 10px;    overflow: auto; }
+.search-box > i.fa{position:absolute;top:14px;left:10px; }
+.search-box > input[type="text"]{border:0px;padding:10px 10px 10px 0px;display:block;width: 100%;}
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; margin-bottom: 5px; }
+.form-group label.chk-active { display: inline-block;}
+.actions { margin-top: 20px; text-align:right;}
+.actions button { padding: 10px 15px; margin-right: 3px; border: none; cursor: pointer; border-radius: 5px; }
+.delete { background-color: #DA0202; color: white; }
+.actions button.edit { background-color: #4e598d; color: white; }
+.actions button.add { background-color: #77659A; color: white;padding: 8px 15px; }
+.actions button.add > i.fa{ display:inline-block;margin-right:5px; }
+.actions button.save { background-color: #77659A; color: white; padding: 8px 15px; }
+.actions button.save > i.fa { display: inline-block; margin-right: 5px; }
+.pagination { display: inline-block; text-align: right;margin:0px 0px 10px;border: 1px solid #ccc;padding:5px;font-size:12px; }
+.pagination select, .pagination input { padding: 5px; margin: 0 5px; box-sizing: border-box; }
+.pagination button { padding: 5px 10px; margin: 0 2px; border: none; background-color: #77659A; color: white; cursor: pointer; }
+.pagination button.disabled { background-color: #cccccc; cursor: not-allowed; }

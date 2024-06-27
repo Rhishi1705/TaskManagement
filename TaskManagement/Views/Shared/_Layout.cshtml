@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Task Management </title>
+
+
+    <link href="~/Contents/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Contents/assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Scripts/alertify.js-0.3.12/dist/css/alertify.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Contents/assets/css/site.css" />
+    <link rel="stylesheet" href="~/Contents/assets/css/TaskManagement.css" />
+    <script src="~/Contents/assets/js/jquery.min.1.11.1.js"></script>
+    <script src="~/Contents/assets/js/bootstrap.min.js"></script>
+    <script src="~/Contents/assets/js/site.js"></script>
+    <script src="~/Scripts/alertify.js-0.3.12/dist/js/alertify.js"></script>
+</head>
+<body>
+    <div class="elements w-full">
+        <div class="sidebarWrap">
+            <a class="active" href="~/Task/Index"><div class="sidebarContents"><h4 class="sidebarh4">Task Master</h4></div></a>
+        </div>
+        <div class="rightside">
+            <nav class="TopbarNav">
+                <div class="TopbarWraper">
+                    <ul class="linksOuterWrap">
+                        <li class="links"><a href="/Login/CheckOut"> Logout </a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="page-content"> @RenderBody()</div>
+        </div>
+    </div>
+
+</body>
+</html>
